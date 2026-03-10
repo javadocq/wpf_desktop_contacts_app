@@ -34,16 +34,16 @@ namespace DesktopContactsApp
 
         void ReadDatabase()
         {
+            List<Contact> contacts = new List<Contact>();
             using (SQLiteConnection conn = new SQLiteConnection(App.databasePath))
             {
                 conn.CreateTable<Contact>();
-                // 💡 쿼리 결과를 명확하게 리스트로 변환합니다.
-                var contacts = conn.Table<Contact>().ToList();
+                contacts = conn.Table<Contact>().ToList();
 
-                // 디버깅용 메시지 박스: 여기서 개수가 1개 이상 뜨는지 확인하세요!
+
                 if (contacts != null)
                 {
-                    System.Diagnostics.Debug.WriteLine($"데이터 개수: {contacts.Count}");
+                    contactsListView.ItemsSource = contacts;
                 }
             }
         }
