@@ -45,6 +45,8 @@ namespace DesktopContactsApp.Controls
         public ContactControl()
         {
             InitializeComponent();
+
+            
         }
     }
 }

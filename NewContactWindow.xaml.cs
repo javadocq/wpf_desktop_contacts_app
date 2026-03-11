@@ -23,6 +23,9 @@ namespace DesktopContactsApp
         public NewContactWindow()
         {
             InitializeComponent();
+
+            Owner = Application.Current.MainWindow; // 이 창의 부모 창을 MainWindow로 설정한다. 이렇게 하면 이 창이 MainWindow 위에 뜨고, MainWindow가 최소화되면 이 창도 최소화된다.
+            WindowStartupLocation = WindowStartupLocation.CenterOwner; // 창이 열릴 때 부모 창의 중앙에 뜨도록 설정한다.
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
